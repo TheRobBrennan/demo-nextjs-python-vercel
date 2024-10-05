@@ -15,6 +15,33 @@ Please see [GETTING_STARTED](./GETTING_STARTED.md) or view the GitHub repo at [h
 
 ### Local development
 
+Once you have completed the initial project setup (below), you should be able to start your local development server by activating your virtual environment and starting the development server:
+
+```sh
+# Activate our virtual environment
+% source venv/bin/activate
+(venv) %
+
+# Start the development server
+% npm run dev
+```
+
+If your environment is configured correctly, you should be able to access the following URLs:
+
+- [http://localhost:3000/](http://localhost:3000/) - Next.js frontend application
+- [http://localhost:3000/api/helloNextJs](http://localhost:3000/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
+- [http://127.0.0.1:8000/api/py/helloFastApi](http://127.0.0.1:8000/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+
+Once you are ready to spin down your local environment:
+
+```sh
+# CTRL+C to shut down the development server
+
+# Deactivate the Python virtual environment
+(venv) % deactivate
+%
+```
+
 #### Initial project setup
 
 This project was initially developed on a 2021 14" MacBook Pro with:
@@ -49,6 +76,7 @@ v20.11.1
 
 # Activate our virtual environment
 % source venv/bin/activate
+(venv) %
 ```
 
 ##### Install dependencies for our Next.js project
