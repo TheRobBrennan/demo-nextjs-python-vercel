@@ -34,11 +34,11 @@ If you are developing locally, please make sure that you have Python and Next.js
 ```sh
 # Verify Python 3 is installed on your machine
 % python3 --version
-Python 3.11.1
+Python 3.12.7
 
 # Verify Node.js is installed on your machine
 % node -v
-v20.11.1
+v20.18.0
 ```
 
 If you are using Docker, please make sure that you have Docker installed on your machine:

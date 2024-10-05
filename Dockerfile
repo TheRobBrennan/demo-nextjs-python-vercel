@@ -1,5 +1,6 @@
-ARG NODE_VERSION=20.11.1
-ARG PYTHON_VERSION=3.11.5
+# Default version of Node.js and Python unless specified in the build command or docker-compose.yml
+ARG NODE_VERSION=20.18.0
+ARG PYTHON_VERSION=3.12.7
 
 FROM node:${NODE_VERSION}
 

@@ -6,7 +6,7 @@ services:
       context: .
       args:
         # See https://nodejs.org/en/about/previous-releases/ for a list of available Node.js versions
-        NODE_VERSION: 20.11.1
+        NODE_VERSION: 20.18.0
 
         # See https://www.python.org/downloads/ for a list of available Python versions
         PYTHON_VERSION: 3.12.7
