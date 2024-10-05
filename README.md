@@ -12,4 +12,3 @@ npx create-next-app my_app --example "https://github.com/digitros/nextjs-fastapi
 ```
 
 Please see [GETTING_STARTED](./GETTING_STARTED.md) or view the GitHub repo at [https://github.com/digitros/nextjs-fastapi](https://github.com/digitros/nextjs-fastapi) for more details.
-s
