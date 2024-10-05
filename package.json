@@ -1,7 +1,17 @@
 {
-  "name": "nextjs-fastapi",
-  "version": "0.2.0",
+  "name": "nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel",
+  "version": "0.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SplooshAI/nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.git"
+  },
+  "author": "Rob Brennan <rob@sploosh.ai>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SplooshAI/nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel/issues"
+  },
+  "homepage": "https://github.com/SplooshAI/nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel#readme",
   "scripts": {
     "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --reload",
     "next-dev": "next dev",
