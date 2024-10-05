@@ -1,7 +1,12 @@
-FROM node:20.11.1
+ARG NODE_VERSION=20.11.1
+
+FROM node:${NODE_VERSION}
 
 # Install Python and venv
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-venv && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
