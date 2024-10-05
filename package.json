@@ -13,12 +13,18 @@
   },
   "homepage": "https://github.com/SplooshAI/nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel#readme",
   "scripts": {
-    "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --reload",
+    "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --host 0.0.0.0 --reload",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:destroy": "docker compose down -v --rmi all",
+    "docker:logs": "docker compose logs -f",
+    "docker:dev": "npm run docker:build && npm run docker:up && npm run docker:logs"
   },
   "dependencies": {
     "@types/node": "22.5.5",

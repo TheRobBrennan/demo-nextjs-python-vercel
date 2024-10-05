@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        # See https://nodejs.org/en/about/previous-releases/ for a list of available Node.js versions
+        NODE_VERSION: 20.11.1
+
+        # See https://www.python.org/downloads/ for a list of available Python versions
+        PYTHON_VERSION: 3.12.7
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
