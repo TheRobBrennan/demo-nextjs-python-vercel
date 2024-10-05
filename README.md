@@ -2,6 +2,14 @@
 
 This is my project for the 2024 NASA Space Apps Challenge.
 
+You can view the [demo](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/) application which is hosted on Vercel at [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/).
+
+You should be able to access the following URLs:
+
+- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/) - Next.js frontend application
+- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/helloNextJs](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
+- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/helloFastApi](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+
 ## Getting started
 
 This project was initially built using `create-next-app` and the example Next.js and FastAPI template at [https://github.com/digitros/nextjs-fastapi](https://github.com/digitros/nextjs-fastapi) as a starting point:
@@ -100,3 +108,7 @@ If your environment is configured correctly, you should be able to access the fo
 - [http://localhost:3000/](http://localhost:3000/) - Next.js frontend application
 - [http://localhost:3000/api/helloNextJs](http://localhost:3000/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
 - [http://127.0.0.1:8000/api/py/helloFastApi](http://127.0.0.1:8000/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+
+### Deployment to Vercel
+
+This project can be deployed to the free tier of Vercel without any customization. Simply follow the steps in the [Deploying Git Repositories with Vercel](https://vercel.com/docs/deployments/git#deploying-git-repositories-with-vercel) guide to create a new project on Vercel using your repository. 🤓
