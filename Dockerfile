@@ -21,6 +21,9 @@ RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VER
     cd .. && \
     rm -rf Python-${PYTHON_VERSION}.tgz Python-${PYTHON_VERSION}
 
+# Upgrade pip to the latest version
+RUN python3 -m pip install --upgrade pip
+
 # Set working directory
 WORKDIR /app
 

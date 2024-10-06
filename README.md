@@ -36,6 +36,9 @@ If you are developing locally, please make sure that you have Python and Next.js
 % python3 --version
 Python 3.12.7
 
+# Upgrade pip to the latest version
+% python3 -m pip install --upgrade pip
+
 # Verify Node.js is installed on your machine
 % node -v
 v20.18.0
