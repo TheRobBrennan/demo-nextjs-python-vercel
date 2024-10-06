@@ -33,6 +33,7 @@
     "test:python:coverage:open": "pytest --cov=api --cov-report=html && npx open-cli htmlcov/index.html"
   },
   "dependencies": {
+    "@types/leaflet": "^1.9.12",
     "@types/node": "22.5.5",
     "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
@@ -40,6 +41,7 @@
     "concurrently": "^9.0.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "leaflet": "^1.9.4",
     "next": "^14.2.13",
     "postcss": "^8.4.47",
     "react": "18.3.1",
