@@ -3,9 +3,12 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import styles from './Map.module.css';
 import { useUserLocation } from '../../hooks/useUserLocation';
+import MapIcon from './MapIcon';
 
 const Map: React.FC = () => {
   const mapRef = useRef<L.Map | null>(null);
+  const markerRef = useRef<L.Marker | null>(null);
+  const circleRef = useRef<L.Circle | null>(null);
   const { latitude, longitude } = useUserLocation();
 
   useEffect(() => {
@@ -17,6 +20,29 @@ const Map: React.FC = () => {
     } else {
       mapRef.current.setView([latitude, longitude], 13);
     }
+
+    // Add or update the marker with custom icon
+    if (markerRef.current) {
+      markerRef.current.setLatLng([latitude, longitude]);
+    } else {
+      markerRef.current = L.marker([latitude, longitude], { icon: MapIcon }).addTo(mapRef.current);
+    }
+
+    // Add or update the circle
+    if (circleRef.current) {
+      circleRef.current.setLatLng([latitude, longitude]);
+    } else {
+      circleRef.current = L.circle([latitude, longitude], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.2,
+        radius: 500
+      }).addTo(mapRef.current);
+    }
+
+    // Add a popup to the marker
+    markerRef.current.bindPopup("You are here!").openPopup();
+
   }, [latitude, longitude]);
 
   return <div id="map" className={styles.map}></div>;
