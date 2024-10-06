@@ -159,6 +159,31 @@ If you prefer to run the application directly on your machine:
 
 ### Running Tests
 
+#### Next.js
+
+To run the Next.js tests, use the following command:
+
+```sh
+# Run Next.js tests
+% npm run test:next
+```
+
+To run the Next.js tests with coverage, use the following command:
+
+```sh
+# Run Next.js tests with coverage
+% npm run test:next:coverage
+```
+
+To open the coverage report in your browser, use the following command:
+
+```sh
+# Open the coverage report
+% npm run test:next:coverage:open
+```
+
+#### Python
+
 To run the Python tests, use the following command:
 
 ```sh
