@@ -1,4 +1,4 @@
-import { PingResponse } from '../types';
+import { PingResponse } from '../../../types/types';
 
 export const fetchPing = async (url: string): Promise<PingResponse> => {
   const response = await fetch(url);

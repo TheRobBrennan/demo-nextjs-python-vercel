@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PingResponse } from '../types';
+import { PingResponse } from '../../../types/types';
 import { fetchPing } from '../utils/fetchPing';
 
 const usePingData = () => {

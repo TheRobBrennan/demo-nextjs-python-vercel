@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../APIDebug.module.css';
-import { PingResponse } from '../types';
+import { PingResponse } from '../../../types/types';
 
 interface PingDisplayProps {
   title: string;
