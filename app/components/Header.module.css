@@ -1,10 +1,23 @@
 .header {
   position: relative;
-  height: 300px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.image {
+  object-position: center 30% !important; /* Adjust this value to move the image up or down */
 }
 
 .overlay {
@@ -20,7 +33,7 @@
 .title {
   color: white;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   z-index: 2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);

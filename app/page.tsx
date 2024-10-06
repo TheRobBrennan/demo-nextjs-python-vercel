@@ -3,9 +3,11 @@ import APIDebug from './components/APIDebug';
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen flex flex-col">
       <Header />
-      <APIDebug />
+      <div className="flex-grow overflow-auto">
+        <APIDebug />
+      </div>
     </main>
   );
 }

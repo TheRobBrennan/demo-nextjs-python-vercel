@@ -50,5 +50,4 @@ const APIDebug = () => {
     </div>
   );
 };
-
 export default APIDebug;
