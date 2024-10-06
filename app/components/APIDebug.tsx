@@ -65,7 +65,7 @@ const APIDebug: React.FC = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>API Debug</h2>
-      <p className={styles.error} data-testid="error-message">{error || 'No error'}</p>
+      <p className={styles.error} data-testid="error-message">{error || null}</p>
       <div className={styles.pingContainer}>
         <h3 className={styles.subtitle}>Next.js Ping</h3>
         <pre className={styles.pre}>{JSON.stringify(nextJsPing, null, 2)}</pre>
