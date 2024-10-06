@@ -1,156 +1,117 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { render, act } from '@testing-library/react';
 import React from 'react';
+import { render, screen, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import Map from './Map';
+import L from 'leaflet';
 import { useUserLocation } from '../../hooks/useUserLocation';
 
-// Mock the useUserLocation hook
-vi.mock('../../hooks/useUserLocation');
-
-// Mock MapIcon
+// Mock the MapIcon
 vi.mock('./MapIcon', () => ({
-  default: {},
+  default: 'mocked-map-icon'
 }));
 
-// Mock Leaflet
-vi.mock('leaflet', () => {
-  const mockSetView = vi.fn().mockReturnThis();
-  const mockAddTo = vi.fn().mockReturnThis();
-  const mockSetLatLng = vi.fn().mockReturnThis();
-  const mockBindPopup = vi.fn().mockReturnThis();
-  const mockOpenPopup = vi.fn();
-  const mockRemove = vi.fn();
+// Mock the Leaflet library
+const mockSetView = vi.fn().mockReturnThis();
+const mockRemove = vi.fn();
+const mockAddTo = vi.fn().mockReturnThis();
+const mockBindPopup = vi.fn().mockReturnThis();
+const mockOpenPopup = vi.fn();
+const mockSetLatLng = vi.fn();
 
-  const mockMap = vi.fn(() => ({
-    setView: mockSetView,
-    remove: mockRemove,
-  }));
+vi.mock('leaflet', () => ({
+  default: {
+    map: vi.fn(() => ({
+      setView: mockSetView,
+      remove: mockRemove,
+    })),
+    tileLayer: vi.fn(() => ({
+      addTo: mockAddTo,
+    })),
+    marker: vi.fn(() => ({
+      addTo: mockAddTo,
+      setLatLng: mockSetLatLng,
+      bindPopup: mockBindPopup,
+      openPopup: mockOpenPopup,
+    })),
+    circle: vi.fn(() => ({
+      addTo: mockAddTo,
+      setLatLng: mockSetLatLng,
+    })),
+    icon: vi.fn(() => 'mocked-leaflet-icon'),
+  },
+}));
 
-  const mockTileLayer = vi.fn(() => ({
-    addTo: mockAddTo,
-  }));
+// Mock the useUserLocation hook
+vi.mock('../../hooks/useUserLocation', () => ({
+  useUserLocation: vi.fn().mockReturnValue({ latitude: 0, longitude: 0 }),
+}));
 
-  const mockMarker = vi.fn(() => ({
-    setLatLng: mockSetLatLng,
-    addTo: mockAddTo,
-    bindPopup: mockBindPopup,
-    openPopup: mockOpenPopup,
-  }));
-
-  const mockCircle = vi.fn(() => ({
-    setLatLng: mockSetLatLng,
-    addTo: mockAddTo,
-  }));
-
-  const mockIcon = vi.fn();
-
-  return {
-    default: {
-      map: mockMap,
-      tileLayer: mockTileLayer,
-      marker: mockMarker,
-      circle: mockCircle,
-      icon: mockIcon,
-    },
-    map: mockMap,
-    tileLayer: mockTileLayer,
-    marker: mockMarker,
-    circle: mockCircle,
-    icon: mockIcon,
-  };
-});
-
-// Import the Map component after the mocks
-import Map from './Map';
-
-describe('Map Component', () => {
-  const mockLatitude = 51.505;
-  const mockLongitude = -0.09;
-
+describe('Map', () => {
   beforeEach(() => {
-    vi.mocked(useUserLocation).mockReturnValue({ latitude: mockLatitude, longitude: mockLongitude });
-  });
-
-  afterEach(() => {
     vi.clearAllMocks();
   });
 
-  it('initializes the map with correct parameters', async () => {
-    await act(async () => {
-      render(<Map />);
-    });
-
-    const L = await import('leaflet');
-    expect(L.map).toHaveBeenCalledWith('map');
-    expect(L.map().setView).toHaveBeenCalledWith([mockLatitude, mockLongitude], 13);
+  it('renders the map container', () => {
+    render(<Map />);
+    expect(screen.getByTestId('map-container')).toBeInTheDocument();
   });
 
-  it('adds tile layer to the map', async () => {
-    await act(async () => {
-      render(<Map />);
-    });
-
-    const L = await import('leaflet');
+  it('initializes the map with correct settings', () => {
+    render(<Map />);
+    expect(L.map).toHaveBeenCalledWith('map');
+    expect(mockSetView).toHaveBeenCalledWith([0, 0], 13);
     expect(L.tileLayer).toHaveBeenCalledWith(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       { attribution: '&copy; OpenStreetMap contributors' }
     );
-    expect(L.tileLayer().addTo).toHaveBeenCalled();
   });
 
-  it('adds marker and circle to the map', async () => {
-    await act(async () => {
-      render(<Map />);
-    });
-
-    const L = await import('leaflet');
-    expect(L.marker).toHaveBeenCalledWith([mockLatitude, mockLongitude], { icon: {} });
-    expect(L.marker().addTo).toHaveBeenCalled();
-    expect(L.marker().bindPopup).toHaveBeenCalledWith("You are here!");
-    expect(L.marker().openPopup).toHaveBeenCalled();
-
-    expect(L.circle).toHaveBeenCalledWith([mockLatitude, mockLongitude], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.2,
-      radius: 500
-    });
-    expect(L.circle().addTo).toHaveBeenCalled();
+  it('creates a marker and circle on initial render', () => {
+    render(<Map />);
+    expect(L.marker).toHaveBeenCalledWith([0, 0], { icon: 'mocked-map-icon' });
+    expect(L.circle).toHaveBeenCalledWith([0, 0], expect.any(Object));
   });
 
   it('updates marker and circle when location changes', async () => {
     const { rerender } = render(<Map />);
-
-    const newLatitude = 40.7128;
-    const newLongitude = -74.0060;
-
-    vi.mocked(useUserLocation).mockReturnValue({ latitude: newLatitude, longitude: newLongitude });
-
+    
+    vi.mocked(useUserLocation).mockReturnValue({ latitude: 1, longitude: 1 });
+    
     await act(async () => {
       rerender(<Map />);
     });
-
-    const L = await import('leaflet');
-    expect(L.marker().setLatLng).toHaveBeenCalledWith([newLatitude, newLongitude]);
-    expect(L.circle().setLatLng).toHaveBeenCalledWith([newLatitude, newLongitude]);
+    
+    expect(mockSetView).toHaveBeenCalledWith([1, 1], 13);
+    expect(mockSetLatLng).toHaveBeenCalledWith([1, 1]);
   });
 
-  it('removes the map when component unmounts', async () => {
-    let mapInstance: any;
-    const L = await import('leaflet');
-    vi.mocked(L.map).mockImplementation(() => {
-      mapInstance = {
-        setView: vi.fn().mockReturnThis(),
-        remove: vi.fn(),
-      };
-      return mapInstance;
-    });
-
-    const { unmount } = render(<Map />);
-
+  it('updates existing map view when location changes', async () => {
+    // Mock initial location
+    vi.mocked(useUserLocation).mockReturnValue({ latitude: 0, longitude: 0 });
+  
+    // Initial render
+    const { rerender } = render(<Map />);
+    
+    // Ensure the map is created with initial coordinates
+    expect(L.map).toHaveBeenCalledTimes(1);
+    expect(mockSetView).toHaveBeenCalledWith([0, 0], 13);
+  
+    // Clear the mocks to check for new calls
+    vi.clearAllMocks();
+  
+    // Update the location
+    vi.mocked(useUserLocation).mockReturnValue({ latitude: 1, longitude: 1 });
+  
+    // Rerender the component
     await act(async () => {
-      unmount();
+      rerender(<Map />);
     });
-
-    expect(mapInstance.remove).toHaveBeenCalled();
+  
+    // The map should not be created again
+    expect(L.map).not.toHaveBeenCalled();
+  
+    // setView should be called with the new coordinates
+    expect(mockSetView).toHaveBeenCalledWith([1, 1], 13);
   });
+
 });

@@ -22,38 +22,27 @@ const Map: React.FC = () => {
       mapRef.current.setView([latitude, longitude], 13);
     }
 
-    // Add or update the marker
-    if (markerRef.current) {
-      markerRef.current.setLatLng([latitude, longitude]);
-    } else {
-      markerRef.current = L.marker([latitude, longitude], { icon: MapIcon }).addTo(mapRef.current);
+    if (!markerRef.current && mapRef.current) {
+      markerRef.current = L.marker([latitude, longitude], { icon: MapIcon })
+        .addTo(mapRef.current)
+        .bindPopup("You are here!")
+        .openPopup();
     }
 
-    // Add or update the marker with custom icon
-    if (markerRef.current) {
-      markerRef.current.setLatLng([latitude, longitude]);
-    } else {
-      markerRef.current = L.marker([latitude, longitude], { icon: MapIcon }).addTo(mapRef.current);
-    }
-
-    // Add or update the circle
-    if (circleRef.current) {
-      circleRef.current.setLatLng([latitude, longitude]);
-    } else {
+    if (!circleRef.current && mapRef.current) {
       circleRef.current = L.circle([latitude, longitude], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.2,
         radius: 500
       }).addTo(mapRef.current);
+    } else if (circleRef.current) {
+      circleRef.current.setLatLng([latitude, longitude]);
     }
-
-    // Add a popup to the marker
-    markerRef.current.bindPopup("You are here!").openPopup();
     
   }, [latitude, longitude]);
 
-  return <div id="map" className={styles.map}></div>;
+  return <div id="map" data-testid="map-container" className={styles.map}></div>;
 };
 
 export default Map;
