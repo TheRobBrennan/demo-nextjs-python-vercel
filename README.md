@@ -7,8 +7,8 @@ You can view the [demo](https://nasa-challenge-2024-landsat-demo-with-nextjs-pyt
 You should be able to access the following URLs:
 
 - [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/) - Next.js frontend application
-- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/helloNextJs](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
-- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/helloFastApi](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/ping](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/ping) - Next.js backend API/route handler
+- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/ping](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/ping) - Python FastAPI endpoint
 
 ## Getting Started
 
@@ -78,8 +78,8 @@ To run the application directly on your machine, you can use the following comma
 If your environment is configured correctly, you should be able to access the following URLs:
 
 - [http://localhost:3000/](http://localhost:3000/) - Next.js frontend application
-- [http://localhost:3000/api/helloNextJs](http://localhost:3000/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
-- [http://localhost:8000/api/py/helloFastApi](http://localhost:8000/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+- [http://localhost:3000/api/ping](http://localhost:3000/api/ping) - Next.js backend API/route handler
+- [http://localhost:8000/api/py/ping](http://localhost:8000/api/py/ping) - Python FastAPI endpoint
 
 #### Using Docker
 
@@ -116,8 +116,8 @@ If your environment is configured correctly, you should be able to access the fo
 The application will be available at:
 
 - [http://localhost:3000/](http://localhost:3000/) - Next.js frontend application
-- [http://localhost:3000/api/helloNextJs](http://localhost:3000/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
-- [http://localhost:8000/api/py/helloFastApi](http://localhost:8000/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+- [http://localhost:3000/api/ping](http://localhost:3000/api/ping) - Next.js backend API/route handler
+- [http://localhost:8000/api/py/ping](http://localhost:8000/api/py/ping) - Python FastAPI endpoint
 
 #### Running Locally (without Docker)
 
@@ -146,8 +146,8 @@ If you prefer to run the application directly on your machine:
    The application will be available at:
 
     - [http://localhost:3000/](http://localhost:3000/) - Next.js frontend application
-    - [http://localhost:3000/api/helloNextJs](http://localhost:3000/api/helloNextJs) - [EXAMPLE] Next.js backend API/route handler
-    - [http://localhost:8000/api/py/helloFastApi](http://localhost:8000/api/py/helloFastApi) - [EXAMPLE] Python FastAPI endpoint
+    - [http://localhost:3000/api/ping](http://localhost:3000/api/ping) - Next.js backend API/route handler
+    - [http://localhost:8000/api/py/ping](http://localhost:8000/api/py/ping) - Python FastAPI endpoint
 
 4. To stop the development server, use CTRL+C.
 
