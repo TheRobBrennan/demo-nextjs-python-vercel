@@ -40,3 +40,8 @@ venv
 
 # Docker
 .dockerignore
+
+# Python test and coverage
+.pytest_cache/
+htmlcov/
+.coverage

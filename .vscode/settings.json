@@ -1,9 +1,13 @@
 {
   "cSpell.words": [
     "fastapi",
+    "htmlcov",
     "nextjs",
     "openapi",
+    "pydantic",
+    "pytz",
     "tailwindcss",
+    "testid",
     "uvicorn",
     "venv"
   ]
