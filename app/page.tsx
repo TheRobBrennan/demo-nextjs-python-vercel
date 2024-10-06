@@ -1,5 +1,5 @@
-import Header from './components/Header';
-import APIDebug from './components/APIDebug';
+import Header from './components/Header/Header';
+import APIDebug from './components/APIDebug/APIDebug';
 
 export default function Home() {
   return (
