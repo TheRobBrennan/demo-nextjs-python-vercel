@@ -21,14 +21,12 @@ const Map: React.FC = () => {
       mapRef.current.setView([latitude, longitude], 13);
     }
 
-    // Add or update the marker with custom icon
     if (markerRef.current) {
       markerRef.current.setLatLng([latitude, longitude]);
     } else {
       markerRef.current = L.marker([latitude, longitude], { icon: MapIcon }).addTo(mapRef.current);
     }
 
-    // Add or update the circle
     if (circleRef.current) {
       circleRef.current.setLatLng([latitude, longitude]);
     } else {
@@ -40,12 +38,24 @@ const Map: React.FC = () => {
       }).addTo(mapRef.current);
     }
 
-    // Add a popup to the marker
-    markerRef.current.bindPopup("You are here!").openPopup();
+    if (markerRef.current) {
+      markerRef.current.bindPopup("You are here!").openPopup();
+    }
 
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+      }
+    };
   }, [latitude, longitude]);
 
   return <div id="map" className={styles.map}></div>;
+};
+
+// Expose the cleanup function for testing
+(Map as any).cleanupForTesting = () => {
+  const cleanup = (Map as any).__reactRefs?.current?.cleanupFn;
+  if (cleanup) cleanup();
 };
 
 export default Map;
