@@ -24,7 +24,10 @@
     "docker:down": "docker compose down",
     "docker:destroy": "docker compose down -v --rmi all",
     "docker:logs": "docker compose logs -f",
-    "docker:dev": "npm run docker:build && npm run docker:up && npm run docker:logs"
+    "docker:dev": "npm run docker:build && npm run docker:up && npm run docker:logs",
+    "test:python": "pytest",
+    "test:python:coverage": "pytest --cov=api --cov-report=html",
+    "test:python:coverage:open": "pytest --cov=api --cov-report=html && open htmlcov/index.html"
   },
   "dependencies": {
     "@types/node": "22.5.5",

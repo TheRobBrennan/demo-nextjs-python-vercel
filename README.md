@@ -157,6 +157,29 @@ If you prefer to run the application directly on your machine:
    deactivate
    ```
 
+### Running Tests
+
+To run the Python tests, use the following command:
+
+```sh
+# Run Python tests
+% npm run test:python
+```
+
+To run the Python tests with coverage, use the following command:
+
+```sh
+# Run Python tests with coverage
+% npm run test:python:coverage
+```
+
+To open the coverage report in your browser, use the following command:
+
+```sh
+# Open the coverage report
+% npm run test:python:coverage:open
+```
+
 ## Deployment to Vercel
 
 This project can be deployed to the free tier of Vercel without any customization. Simply follow the steps in the [Deploying Git Repositories with Vercel](https://vercel.com/docs/deployments/git#deploying-git-repositories-with-vercel) guide to create a new project on Vercel using your repository. 🤓
