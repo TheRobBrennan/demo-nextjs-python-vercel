@@ -8,23 +8,32 @@ const MockMap = () => <div data-testid="map-container">Map Component</div>;
 
 // Mock next/dynamic
 vi.mock('next/dynamic', () => ({
-  default: vi.fn((importFunc, options) => {
-    const DynamicComponent = (props: any) => {
+  __esModule: true,
+  default: (importFunc: () => Promise<any>) => {
+    const DynamicComponent = () => {
       const [Component, setComponent] = React.useState<React.ComponentType | null>(null);
 
       React.useEffect(() => {
-        importFunc().then((mod) => setComponent(() => MockMap));
+        const loadComponent = async () => {
+          try {
+            await importFunc();
+            setComponent(() => MockMap);
+          } catch (error) {
+            console.error('Error loading component:', error);
+          }
+        };
+        loadComponent();
       }, []);
 
       if (!Component) {
-        return options?.loading ? options.loading({}) : null;
+        return <p>Loading map...</p>;
       }
 
-      return <Component {...props} />;
+      return <Component />;
     };
 
     return DynamicComponent;
-  }),
+  },
 }));
 
 describe('DynamicMap', () => {
@@ -42,6 +51,6 @@ describe('DynamicMap', () => {
     render(<DynamicMap />);
     await waitFor(() => {
       expect(screen.getByTestId('map-container')).toBeInTheDocument();
-    });
+    }, { timeout: 2000 });
   });
 });

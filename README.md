@@ -141,7 +141,7 @@ If you prefer to run the application directly on your machine:
 3. Run the development server:
 
    ```sh
-   npm run dev   
+   npm run dev
    ```
 
    The application will be available at:

@@ -25,9 +25,9 @@
     "docker:destroy": "docker compose down -v --rmi all",
     "docker:logs": "docker compose logs -f",
     "docker:dev": "npm run docker:build && npm run docker:up && npm run docker:logs",
-    "test:next": "vitest",
-    "test:next:coverage": "vitest run --coverage",
-    "test:next:coverage:open": "vitest run --coverage && npx open-cli coverage/index.html",
+    "test:next": "vitest --config .test-config/vitest.config.ts",
+    "test:next:coverage": "vitest run --config .test-config/vitest.config.ts --coverage",
+    "test:next:coverage:open": "vitest run --config .test-config/vitest.config.ts --coverage && npx open-cli coverage/index.html",
     "test:python": "pytest",
     "test:python:coverage": "pytest --cov=api --cov-report=html",
     "test:python:coverage:open": "pytest --cov=api --cov-report=html && npx open-cli htmlcov/index.html"
