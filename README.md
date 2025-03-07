@@ -12,17 +12,17 @@ You can view the [demo](https://demo-nextjs-python-vercel.vercel.app/) applicati
 
 ## Getting Started
 
-This project was initially developed on a 2021 14" MacBook Pro with:
+This project was initially developed on a Mac with:
 
-- Apple M1 Max
-- 64 GB RAM
-- macOS Sequoia 15.0.1
+- macOS Sequoia 15.3.1
+- Python 3.13.1
+- Node.js v22.12.0
+- Docker version 27.5.1
 
 The original project was built using `create-next-app` and the example Next.js and FastAPI template at [https://github.com/digitros/nextjs-fastapi](https://github.com/digitros/nextjs-fastapi) as a starting point:
 
 ```sh
 npx create-next-app my_app --example "https://github.com/digitros/nextjs-fastapi"
-
 ```
 
 Please see [GETTING_STARTED](./GETTING_STARTED.md) or view the GitHub repo at [https://github.com/digitros/nextjs-fastapi](https://github.com/digitros/nextjs-fastapi) for more details.
@@ -34,21 +34,21 @@ If you are developing locally, please make sure that you have Python and Next.js
 ```sh
 # Verify Python 3 is installed on your machine
 % python3 --version
-Python 3.12.7
+Python 3.13.1
 
 # Upgrade pip to the latest version
 % python3 -m pip install --upgrade pip
 
 # Verify Node.js is installed on your machine
 % node -v
-v20.18.0
+v22.12.0
 ```
 
 If you are using Docker, please make sure that you have Docker installed on your machine:
 
 ```sh
 % docker --version
-Docker version 27.2.0, build 3ab4256
+Docker version 27.5.1, build 9f9e405
 ```
 
 ### Running the Application
@@ -65,6 +65,7 @@ To run the application directly on your machine, you can use the following comma
 
 ```sh
 # Activate our virtual environment
+% python3 -m venv venv
 % source venv/bin/activate
 
 # Install project dependencies for our Next.js app
