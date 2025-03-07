@@ -51,6 +51,16 @@ If you are using Docker, please make sure that you have Docker installed on your
 Docker version 27.5.1, build 9f9e405
 ```
 
+If you plan to test GitHub Actions workflows locally, you'll need to install [act](https://github.com/nektos/act):
+
+```sh
+# macOS (using Homebrew)
+% brew install act
+
+# Verify act installation
+% act --version
+```
+
 ### Running the Application
 
 You can run this application either directly on your machine or using Docker.
@@ -204,6 +214,50 @@ To open the coverage report in your browser, use the following command:
 ```sh
 # Open the coverage report
 % npm run test:python:coverage:open
+```
+
+### GitHub Actions Workflow Testing
+
+This project includes scripts to test GitHub Actions workflows locally using [act](https://github.com/nektos/act). These tests can be run in a Docker environment to ensure workflow compatibility.
+
+#### Testing All Workflows
+
+To run all workflow tests:
+
+```sh
+# Run all workflow tests
+% npm run test:workflows
+```
+
+#### Testing Semantic PR Workflows
+
+Test different types of pull request scenarios:
+
+```sh
+# Test PR with minor version changes (default)
+% npm run test:workflows:semantic
+
+# Test PR with major version changes
+% npm run test:workflows:semantic:major
+
+# Test PR with minor version changes
+% npm run test:workflows:semantic:minor
+
+# Test PR with patch version changes
+% npm run test:workflows:semantic:patch
+
+# Test PR with invalid format
+% npm run test:workflows:semantic:invalid
+```
+
+#### Testing Version and Merge Workflows
+
+```sh
+# Test version bump workflow
+% npm run test:workflows:version
+
+# Test main branch merge workflow
+% npm run test:workflows:merge
 ```
 
 ## Deployment to Vercel

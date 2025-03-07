@@ -30,7 +30,15 @@
     "test:next:coverage:open": "vitest run --config .test-config/vitest.config.ts --coverage && npx open-cli coverage/index.html",
     "test:python": "pytest",
     "test:python:coverage": "pytest --cov=api --cov-report=html",
-    "test:python:coverage:open": "pytest --cov=api --cov-report=html && npx open-cli htmlcov/index.html"
+    "test:python:coverage:open": "pytest --cov=api --cov-report=html && npx open-cli htmlcov/index.html",
+    "test:workflows": "chmod +x .github/test-workflows.sh && .github/test-workflows.sh",
+    "test:workflows:semantic": "act pull_request -e .github/test-data/pr-events/minor.json -W .github/workflows/semantic-pr-check.yml",
+    "test:workflows:semantic:major": "act pull_request -e .github/test-data/pr-events/major.json -W .github/workflows/semantic-pr-check.yml",
+    "test:workflows:semantic:minor": "act pull_request -e .github/test-data/pr-events/minor.json -W .github/workflows/semantic-pr-check.yml",
+    "test:workflows:semantic:patch": "act pull_request -e .github/test-data/pr-events/patch.json -W .github/workflows/semantic-pr-check.yml",
+    "test:workflows:semantic:invalid": "act pull_request -e .github/test-data/pr-events/invalid.json -W .github/workflows/semantic-pr-check.yml",
+    "test:workflows:version": "act workflow_dispatch -W .github/workflows/version-bump.yml --container-architecture linux/amd64",
+    "test:workflows:merge": "act push -e .github/test-data/pr-events/merge.json -W .github/workflows/main-merge.yml --container-architecture linux/amd64"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.12",
