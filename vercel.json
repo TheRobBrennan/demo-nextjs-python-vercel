@@ -5,7 +5,7 @@
     "framework": "nextjs",
     "functions": {
         "api/py/**/*.py": {
-            "runtime": "python3.13"
+            "runtime": "@vercel/python@3.1.0"
         }
     },
     "rewrites": [
