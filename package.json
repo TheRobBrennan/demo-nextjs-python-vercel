@@ -16,7 +16,7 @@
     "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --host 0.0.0.0 --reload",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
-    "build": "NODE_ENV=production npm ci --omit=dev && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "docker:build": "docker compose build",
@@ -49,7 +49,7 @@
     "tailwindcss": "3.4.12",
     "typescript": "5.6.2"
   },
-  "optionalDependencies": {
+  "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
