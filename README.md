@@ -280,6 +280,17 @@ Start your development server:
 - `npm run dev`: Run the application in development mode
 - `npm run docker:dev`: Run the application using Docker in development mode
 
+Open application URLs:
+
+- `npm run open:local`: Open all local development URLs in your default browser
+  - Next.js frontend (<http://localhost:3000>)
+  - Next.js API route (<http://localhost:3000/api/ping>)
+  - Python FastAPI endpoint (<http://localhost:8000/api/py/ping>)
+- `npm run open:demo`: Open all production URLs in your default browser
+  - Next.js frontend (<https://demo-nextjs-python-vercel.vercel.app>)
+  - Next.js API route (<https://demo-nextjs-python-vercel.vercel.app/api/ping>)
+  - Python FastAPI endpoint (<https://demo-nextjs-python-vercel.vercel.app/api/py/ping>)
+
 Additional scripts include:
 
 - `npm run docker:build`: Build Docker images

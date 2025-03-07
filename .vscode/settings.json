@@ -9,6 +9,7 @@
     "pytz",
     "tailwindcss",
     "testid",
+    "turbopack",
     "uvicorn",
     "venv"
   ]

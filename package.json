@@ -14,7 +14,7 @@
   "homepage": "https://github.com/TheRobBrennan/demo-nextjs-python-vercel#readme",
   "scripts": {
     "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --host 0.0.0.0 --reload",
-    "next-dev": "next dev",
+    "next-dev": "next dev --turbopack",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
     "start": "next start",
@@ -38,7 +38,9 @@
     "test:workflows:semantic:patch": "act pull_request -e .github/test-data/pr-events/patch.json -W .github/workflows/semantic-pr-check.yml",
     "test:workflows:semantic:invalid": "act pull_request -e .github/test-data/pr-events/invalid.json -W .github/workflows/semantic-pr-check.yml",
     "test:workflows:version": "act workflow_dispatch -W .github/workflows/version-bump.yml --container-architecture linux/amd64",
-    "test:workflows:merge": "act push -e .github/test-data/pr-events/merge.json -W .github/workflows/main-merge.yml --container-architecture linux/amd64"
+    "test:workflows:merge": "act push -e .github/test-data/pr-events/merge.json -W .github/workflows/main-merge.yml --container-architecture linux/amd64",
+    "open:local": "concurrently \"open-cli http://localhost:3000\" \"open-cli http://localhost:3000/api/ping\" \"open-cli http://localhost:8000/api/py/ping\"",
+    "open:demo": "concurrently \"open-cli https://demo-nextjs-python-vercel.vercel.app\" \"open-cli https://demo-nextjs-python-vercel.vercel.app/api/ping\" \"open-cli https://demo-nextjs-python-vercel.vercel.app/api/py/ping\""
   },
   "dependencies": {
     "@types/leaflet": "^1.9.12",
@@ -50,10 +52,10 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "leaflet": "^1.9.4",
-    "next": "^14.2.13",
+    "next": "^15.2.1",
     "postcss": "^8.4.47",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "3.4.12",
     "typescript": "5.6.2"
   },
