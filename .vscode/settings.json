@@ -5,6 +5,7 @@
     "nextjs",
     "openapi",
     "pydantic",
+    "pytest",
     "pytz",
     "tailwindcss",
     "testid",

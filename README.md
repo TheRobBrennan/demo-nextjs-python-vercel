@@ -1,14 +1,14 @@
-# NASA Challenge 2024: Landsat Demo with Next.js, Python, and Vercel
+# Welcome 👋
 
 This project demonstrates a full-stack application using [Next.js](https://nextjs.org/), [FastAPI](https://fastapi.tiangolo.com/), and optionally [Docker](https://www.docker.com/) for containerization.
 
-You can view the [demo](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/) application which is hosted on Vercel at [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/).
+You can view the [demo](https://demo-nextjs-python-vercel.vercel.app/) application which is hosted on Vercel at [https://demo-nextjs-python-vercel.vercel.app](https://demo-nextjs-python-vercel.vercel.app/).
 
-You should be able to access the following URLs:
+## Available endpoints
 
-- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/) - Next.js frontend application
-- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/ping](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/ping) - Next.js backend API/route handler
-- [https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/ping](https://nasa-challenge-2024-landsat-demo-with-nextjs-python-and-vercel.vercel.app/api/py/ping) - Python FastAPI endpoint
+- [https://demo-nextjs-python-vercel.vercel.app/](https://demo-nextjs-python-vercel.vercel.app/) - Next.js frontend application
+- [https://demo-nextjs-python-vercel.vercel.app/api/ping](https://demo-nextjs-python-vercel.vercel.app/api/ping) - Next.js backend API/route handler
+- [https://demo-nextjs-python-vercel.vercel.app/api/py/ping](https://demo-nextjs-python-vercel.vercel.app/api/py/ping) - Python FastAPI endpoint
 
 ## Getting Started
 
