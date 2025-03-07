@@ -1,7 +1,7 @@
 {
     "framework": "nextjs",
     "functions": {
-        "api/*.py": {
+        "api/handler.py": {
             "runtime": "@vercel/python@3.1.0"
         }
     },
