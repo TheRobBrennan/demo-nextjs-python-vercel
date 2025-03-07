@@ -8,8 +8,8 @@ const Header = () => {
         <Image
           src="/landsat-8-sm-1582894936147.jpg"
           alt="Landsat imagery"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           quality={100}
           className={styles.image}
         />

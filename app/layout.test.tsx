@@ -19,22 +19,22 @@ describe('RootLayout', () => {
   });
 
   it('applies a font class', () => {
-    const { container } = render(
+    render(
       <RootLayout>
         <div>Test Child</div>
       </RootLayout>
     );
-    const body = container.querySelector('body');
-    expect(body).toHaveClass('mocked-inter-class');
+    // The font class is applied to the body element
+    expect(document.body.className).toContain('mocked-inter-class');
   });
 
   it('has correct lang attribute', () => {
-    const { container } = render(
+    render(
       <RootLayout>
         <div>Test Child</div>
       </RootLayout>
     );
-    const html = container.querySelector('html');
-    expect(html).toHaveAttribute('lang', 'en');
+    // The lang attribute is applied to the html element
+    expect(document.documentElement.getAttribute('lang')).toBe('en');
   });
 });
