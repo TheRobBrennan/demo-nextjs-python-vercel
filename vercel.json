@@ -13,5 +13,14 @@
             "source": "/api/py/(.*)",
             "destination": "/api/py/$1"
         }
+    ],
+    "excludeFiles": [
+        "vitest.config.ts",
+        "vitest.setup.ts",
+        "**/*.test.*",
+        "**/*.spec.*",
+        "test/**",
+        "tests/**",
+        "coverage/**"
     ]
 }
