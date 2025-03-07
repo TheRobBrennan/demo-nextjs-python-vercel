@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from api.routes import ping
 from api.config import settings
 
+
 app = FastAPI(
     title=settings.PROJECT_NAME,
     docs_url="/api/py/docs",
