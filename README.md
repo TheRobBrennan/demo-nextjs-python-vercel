@@ -14,7 +14,7 @@ You can view the [demo](https://demo-nextjs-python-vercel.vercel.app/) applicati
 
 This project was initially developed on a Mac with:
 
-- macOS Sequoia 24.3.0
+- macOS Sequoia 15.3.1
 - Python 3.13.1
 - Node.js v22.12.0
 - Docker version 27.5.1
